@@ -20,20 +20,27 @@ interface HospitalItem {
     data: HospitalItem[]
   }
 
-  export interface RestaurantJson {
+  export interface ReservationJson {
     success: boolean,
     count: number,
     pagination: Object,
-    data: RestaurantItem[]
+    data: ReservationItem[]
   }
 
   export interface ReservationItem {
     _id: string;
     user: string;
     restaurant: RestaurantItem;
-    reserDate: Timestamp;
+    reserDate: Date;
     amount: number;
-    createdAt: Timestamp;
+    createdAt: Date;
+  }
+
+  export interface RestaurantJson {
+    success: boolean,
+    count: number,
+    pagination: Object,
+    data: RestaurantItem[]
   }
 
   export interface RestaurantItem {

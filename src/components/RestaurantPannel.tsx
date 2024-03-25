@@ -7,7 +7,7 @@ import { RestaurantItem,RestaurantJson } from '../../interface'
 
 
 
-export default function BookingList () {
+export default function RestaurantPannel () {
 
     const [restaurantResponse, setRestaurantResponse] = useState<RestaurantJson|null>(null)
 
@@ -18,9 +18,6 @@ export default function BookingList () {
         }
         fetchData()
     },[])
-
-    console.log(restaurantResponse)
-
 
     if(!restaurantResponse) return (<p>Loading restaurant ...</p>)
 

@@ -1,6 +1,6 @@
 import { TextField } from "@mui/material"
 
-export default function Booking() {
+export default function reservation() {
     return (
         <main className="w-[100%] flex flex-col space-y-4 items-center">
             <div className="text-xl font-medium flex justify-center">Restaurant Booking</div>
