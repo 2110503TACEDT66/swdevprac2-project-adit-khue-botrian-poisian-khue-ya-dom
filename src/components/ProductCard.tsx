@@ -8,14 +8,14 @@ export default function ProductCard ({ restaurantName, imgSrc} : { restaurantNam
     return (
         <div className={styles.card}>
             <div className={styles.cardimg}>
-            <Image src={imgSrc}
+            <Image src={'/img/restaurant1'}
             alt = 'Product Picture'
                 fill={true}
                 objectFit='cover'
                 className='object-cover rounded-t-lg'
             />
             </div>
-            <div className="w-full h-[30%] p-[10px]">{restaurantName}</div>
+            <div className={styles.cardtext}>restaurant</div>
             </div>
     );
 }
