@@ -1,0 +1,19 @@
+.bannerText {
+    font-size: 30px;
+    position:relative;
+    top: 30px;
+    left: 20px;
+    z-index: 20;
+    text-align: center;
+    color: white
+}
+
+.banner {
+    display:block;
+    padding: 5px;
+    position:relative;
+    margin: 0;
+    width: 100vw;
+    height: 80vh;
+    
+}
