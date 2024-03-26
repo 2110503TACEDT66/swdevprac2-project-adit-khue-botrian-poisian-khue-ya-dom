@@ -1,7 +1,6 @@
 "use client"
 import { useState } from 'react'
 import { useEffect } from 'react'
-import { Date } from 'mongoose'
 
 import getReservations from '@/libs/getReservations'
 import { ReservationItem, ReservationJson } from '../../interface'
