@@ -4,6 +4,7 @@ import styles from './Sidebar.module.css';
 import { getServerSession } from 'next-auth';
 import { Link } from '@mui/material';
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { useSession } from 'next-auth/react';
 
 interface MenuItem {
   title: string;
@@ -15,16 +16,8 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ items }) => {
-  const [session, setSession] = useState<any>(null); // Assuming session is of any type
+  const {data: session, status} = useSession()
 
-  useEffect(() => {
-    const getSession = async () => {
-      const sessionData = await getServerSession(authOptions);
-      setSession(sessionData);
-    };
-
-    getSession();
-  }, []);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const toggleMenu = () => {
