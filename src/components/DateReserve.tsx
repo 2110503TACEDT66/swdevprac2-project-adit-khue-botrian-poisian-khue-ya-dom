@@ -1,0 +1,48 @@
+'use client'
+import { DatePicker } from "@mui/x-date-pickers"
+import { LocalizationProvider } from "@mui/x-date-pickers"
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+import { Select, MenuItem, TextField } from "@mui/material"
+import { useState } from 'react'
+// import { useSearchParams } from "next/navigation"
+import { Dayjs } from "dayjs"
+
+export default function DateReserve ({onRestaurantChange,onAmountChange,onReserDateChange} : {onRestaurantChange:Function, onAmountChange:Function ,onReserDateChange:Function}) {
+    // const urlParams = useSearchParams()
+    // const hos = urlParams.get('hospital')
+    const [restaurant,setRestaurant] = useState<string>('')
+    const [amount,setAmount] = useState<number>(0)
+    const [reserDate,setReserDate] = useState<Dayjs|null>(null)
+
+    return (
+        <div className="bg-slate-100 rounded-lg space-x-5 w-fit px-10 py-5 flex flex-roe justify-center">
+            <table className='table-auto border-separate border-spacing-2'>
+                    <tbody>
+                        <tr><td>
+            
+            <Select variant="standard" name="restaurant" id="restaurant" value={restaurant} 
+            onChange={(e) => {setRestaurant(e.target.value); onRestaurantChange(e.target.value)}}
+            className="h-[3em] w-[200px]">
+                <MenuItem value="A">A</MenuItem>
+                <MenuItem value="B">B</MenuItem>
+                <MenuItem value="C">C</MenuItem>
+            </Select>
+            </td>
+            <td>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DatePicker className="bg-white"
+                value={reserDate}
+                onChange={(value) => {setReserDate(value); onReserDateChange(value)}}
+                />
+            </LocalizationProvider>
+            </td>
+            </tr>
+            <tr><td>
+            <TextField variant="standard" label="amount" name="amount" value={amount}
+            onChange={(e) => {setAmount(Number(e.target.value)); onAmountChange(e.target.value)}}
+            />
+            </td></tr>
+            </tbody></table>
+        </div>
+    )
+}
