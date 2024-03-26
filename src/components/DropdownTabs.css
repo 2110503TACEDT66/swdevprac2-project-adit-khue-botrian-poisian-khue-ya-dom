@@ -6,8 +6,8 @@ DropdownTabs.css
   }
   
   .dropbtn {
-    background-color: #4caf50;
-    color: white;
+    /* background-color: #4caf50; */
+    color: rgb(41, 36, 56);
     padding: 10px;
     font-size: 16px;
     border: none;
@@ -15,7 +15,7 @@ DropdownTabs.css
   }
   
   .dropbtn:hover {
-    background-color: #3e8e41;
+    background-color: rgba(107, 110, 197, 0.332);
   }
   
   .dropdown-content {

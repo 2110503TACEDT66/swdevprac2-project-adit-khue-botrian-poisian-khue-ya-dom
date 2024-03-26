@@ -2,6 +2,7 @@ import Banner from '../components/Banner'
 import styles from './page.module.css'
 import UserInfo from '@/components/UserInfo'
 import Sidebar from '@/components/Sidebar'
+import ReservationPaneTwo from '@/components/ReservationPaneTwo'
 
 
 export default  async function Home() {
@@ -14,6 +15,7 @@ export default  async function Home() {
     <main className={styles.body}>
       <Banner/>
       <UserInfo/>
+      <ReservationPaneTwo/>
       {/* <Sidebar items={menuItems}/> */}
     </main>
   )

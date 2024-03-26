@@ -7,13 +7,13 @@ interface Tab {
   content: React.ReactNode;
 }
 
-const DropdownTabs: React.FC<{ tabs: Tab[] }> = ({ tabs }) => {
+const DropdownTabs: React.FC<{ tabs: Tab[]; email:String}> = ({ tabs, email }) => {
   const [activeTab, setActiveTab] = useState<Tab | null>(tabs[0]);
 
   return (
     <div className="dropdown-tabs">
       <div className="dropdown">
-        <button className="dropbtn">More Info</button>
+        <button className="dropbtn">{email} ⓘ</button>
         <div className="dropdown-content">
           {tabs.map(tab => (
             <div

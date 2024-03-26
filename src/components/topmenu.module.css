@@ -3,13 +3,13 @@
     background-color: white;
     position:fixed;
     top: 0px;
-    left: 5px;
+    left: 0px;
     right: 0px;
     z-index: 30;
     border-top: 1px solid lightgrey;
     border-bottom: 1px solid lightgrey;
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
 }
 
 /* .logoimg {

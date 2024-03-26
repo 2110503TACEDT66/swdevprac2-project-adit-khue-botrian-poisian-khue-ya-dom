@@ -1,6 +1,7 @@
 "use client"
 import { useState } from 'react'
 import { useEffect } from 'react'
+import { Date } from 'mongoose'
 
 import getReservations from '@/libs/getReservations'
 import { ReservationItem, ReservationJson } from '../../interface'
@@ -32,9 +33,10 @@ export default function ReservationPane () {
         <>
         {
             reservationResponse.data.map((item:ReservationItem) => (
-                <div className="bg-slate-100 rounded-md px-5 mx-5 py-2 my-2" key={item._id}>
-                    <div className="text-xl font-bold">{item.restaurant.name}</div>
-                    <table className='table-auto border-separate border-spacing-2'>
+                <div className="items-center">
+                <div className="w-[38%] flex flex-col items-center space-y-4 rounded-md px-5 mx-5  my-2 " key={item._id}>
+                    <div className="text-md font-bold  bg-slate-100 px-5 my-2 ">{item.restaurant.name} @ {item.reserDate.toString()}</div>
+                    {/* <table className='table-auto border-separate border-spacing-2'>
                     <tbody>
                         <tr>
                             <td>User</td>
@@ -53,18 +55,19 @@ export default function ReservationPane () {
                             <td>{item.amount}</td>
                         </tr>
                     </tbody>
-                    </table>
+                    </table> */}
                     
                     {/* <div>User : {item.user}</div>
                     <div>Restaurant : {item.restaurant.name}</div>
                     <div>Date&Time : {item.reserDate.toString()}</div>
                     <div>Amount : {item.amount}</div> */}
                     
-                    <Link href={`/reservations/${item._id}`}>
+                    {/* <Link href={`/reservations/${item._id}`}>
                     <button className='block rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-1 text-white shadow-sm'>
                         View & Edit
                     </button>
-                    </Link>
+                    </Link> */}
+                </div>
                 </div>
             ))
         }

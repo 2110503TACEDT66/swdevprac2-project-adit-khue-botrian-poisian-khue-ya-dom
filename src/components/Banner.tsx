@@ -15,8 +15,8 @@ export default function Banner () {
             fill={true}
             objectFit='cover'
             />
-            <div className={styles.bannerText}>
-                <div className='bg-sky-500/25 w-3/5'>
+            {/* <div className={styles.bannerText}>
+                <div className='bg-sky-500/25 '>
                 <h1>
                 Restaurant Reservation
                 </h1>
@@ -24,13 +24,13 @@ export default function Banner () {
                     Welcome
                 </h3>
                 </div>
-            </div>
-            <button className='bg-white text-cyan-600 border border-cyan-600
+            </div> */}
+            {/* <button className='bg-white text-cyan-600 border border-cyan-600
             font-semibold py-2 px-2 m-2 rounded z-30 absolute bottom-0 right-0
             hover:bg-cyan-600 hover:text-white hover:border-transparent'
                 onClick={(e)=>{e.stopPropagation();router.push('/restaurant')}}>
                 View Your Restaurant
-            </button>
+            </button> */}
         </div>
     );
 }
