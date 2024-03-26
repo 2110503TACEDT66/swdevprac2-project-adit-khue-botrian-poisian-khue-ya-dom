@@ -38,7 +38,7 @@ const Sidebar: React.FC<SidebarProps> = ({ items }) => {
           </li>
         ))}
       </ul>
-      {session ? (
+      {!session ? (
         <Link href="/api/auth/signin">
           <div className={`${styles['sign-link']}`}>
             Sign-In

@@ -18,7 +18,7 @@ export default async function RootLayout({
   const menuItems = [
     { title: 'Home', link: '/' },
     { title: 'Our Restaurants', link: '/restaurants' },
-    { title: 'Contact', link: '/contact' },
+    { title: 'Reservation', link: '/reservationslist' },
   ];
 
   return (

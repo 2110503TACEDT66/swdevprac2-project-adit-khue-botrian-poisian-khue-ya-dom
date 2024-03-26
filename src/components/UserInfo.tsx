@@ -23,10 +23,10 @@ export default async function UserInfo(){
                             <td>Email</td>
                             <td>{profile.data.email}</td>
                         </tr>
-                        <tr>
+                        {/* <tr>
                             <td>*TOKEN*</td>
                             <td>{session.user.token}</td>
-                        </tr>
+                        </tr> */}
                     </tbody>
                 </table>
             </div>
