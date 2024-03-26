@@ -63,7 +63,7 @@ export default function ReservationDetailPage({params}:{params:{hid:string}}){
                         {
                         (deleteSta != 0 && session)? <tr>
                         <td><button className='block rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-1 text-white shadow-sm m-md'
-                        onClick={() => setDeleteSta(0)}>cancle</button></td>
+                        onClick={() => setDeleteSta(0)}>cancel</button></td>
                         <td><button className='block rounded-md bg-red-600 hover:bg-indigo-600 px-3 py-1 text-white shadow-sm'
                         onClick={() => {deleteReservation(session.user.token,params.hid); alert('Reservation Delete'); window.location.href='/reservationslist';} }>delete</button></td>
                         </tr>

@@ -8,6 +8,7 @@
     transition: left 0.3s ease; /* Smooth transition for opening/closing */
     z-index: 1000;
     margin-top: 50px;
+    position:fixed;
   }
   
   /* Open state */

@@ -1,5 +1,5 @@
 'use client'
-import { DatePicker } from "@mui/x-date-pickers"
+import { DateTimePicker } from "@mui/x-date-pickers"
 import { LocalizationProvider } from "@mui/x-date-pickers"
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { Select, MenuItem, TextField } from "@mui/material"
@@ -23,14 +23,14 @@ export default function DateReserve ({onRestaurantChange,onAmountChange,onReserD
             <Select variant="standard" name="restaurant" id="restaurant" value={restaurant} 
             onChange={(e) => {setRestaurant(e.target.value); onRestaurantChange(e.target.value)}}
             className="h-[3em] w-[200px]">
-                <MenuItem value="A">A</MenuItem>
-                <MenuItem value="B">B</MenuItem>
-                <MenuItem value="C">C</MenuItem>
+                <MenuItem value="65e49c30b99b32ad41836383">Jork Samyan</MenuItem>
+                <MenuItem value="65e59539f2d81b451e6f7f1a">Namba Shabu</MenuItem>
+                <MenuItem value="65e59bd7165845d7bc72f51f">Namba Samyan</MenuItem>
             </Select>
             </td>
             <td>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DatePicker className="bg-white"
+                <DateTimePicker className="bg-white"
                 value={reserDate}
                 onChange={(value) => {setReserDate(value); onReserDateChange(value)}}
                 />

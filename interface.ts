@@ -1,3 +1,4 @@
+import { Dayjs } from "dayjs";
 import { Timestamp } from "mongodb"
 
 interface HospitalItem {
@@ -31,9 +32,18 @@ interface HospitalItem {
     _id: string;
     user: string;
     restaurant: RestaurantItem;
-    reserDate: Date;
+    reserDate: Dayjs;
     amount: number;
-    createdAt: Date;
+    createdAt: Dayjs;
+  }
+
+  export interface MakeReservation {
+    // _id: string;
+    user: string;
+    restaurantID: string;
+    reserDate: Dayjs;
+    amount: number;
+    // createdAt: Dayjs;
   }
 
   export interface RestaurantJson {
