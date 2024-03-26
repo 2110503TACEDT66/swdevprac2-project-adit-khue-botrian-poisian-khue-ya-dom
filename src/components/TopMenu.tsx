@@ -10,9 +10,11 @@ export default async function TopMenu () {
 
     return (
         <div className={styles.menucontainer}>
-            <TopMenuItem title = 'Reservation' pageRef='/reservation'/>
+            {/* <TopMenuItem title = 'Reservation' pageRef='/reservation'/> */}
+            <Link href={'/'}>
             <Image src = {'/img/restaurantlogo.png'} className="h-full w-auto"
             alt='logo' width={0} height={0} sizes="100vh"/>
+            </Link>
         </div>
     );
 }
