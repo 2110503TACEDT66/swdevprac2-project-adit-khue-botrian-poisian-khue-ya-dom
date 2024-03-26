@@ -52,21 +52,28 @@ export default function ReservationDetailPage({params}:{params:{hid:string}}){
                         <tr>
                             <td>Amount</td>
                             <td>{reservationResponse?.amount}</td>
-                        </tr></tbody>
-                    </table>
+                        </tr>
                         {
-                            (deleteSta == 0 )? <button className='block rounded-md bg-red-400 hover:bg-indigo-600 px-3 py-1 text-white shadow-sm'
-                            onClick={() => setDeleteSta(1)}>delete</button>:
-                            <div className='text-red-500'>Once you delete it, it cannot be brought back!</div>
+                            (deleteSta == 0 )? <tr>
+                            <td><button className='block rounded-md bg-red-400 hover:bg-indigo-600 px-3 py-1 text-white shadow-sm'
+                            onClick={() => setDeleteSta(1)}>delete</button></td>
+                            <td><button className='block rounded-md bg-blue-400 hover:bg-indigo-600 px-3 py-1 text-white shadow-sm'
+                            onClick={() => window.location.href=`/reservations/${params.hid}/edit`}>edit</button></td>
+                            </tr>:
+                            <></>
                         }
-                            
+                    </tbody>
+                    </table>        
                         {
-                        (deleteSta != 0 && session)? <tr>
+                        (deleteSta != 0 && session)? 
+                        <>
+                        <div className='text-red-500'>Once you delete it, it cannot be brought back!</div>
+                        <tr>
                         <td><button className='block rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-1 text-white shadow-sm m-md'
                         onClick={() => setDeleteSta(0)}>cancel</button></td>
                         <td><button className='block rounded-md bg-red-600 hover:bg-indigo-600 px-3 py-1 text-white shadow-sm'
                         onClick={() => {deleteReservation(session.user.token,params.hid); alert('Reservation Delete'); window.location.href='/reservationslist';} }>delete</button></td>
-                        </tr>
+                        </tr></>
                         :<></>
                         }
                     
