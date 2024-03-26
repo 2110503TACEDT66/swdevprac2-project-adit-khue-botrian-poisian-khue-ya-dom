@@ -2,7 +2,7 @@ import styles from './topmenu.module.css'
 import Image from 'next/image';
 import TopMenuItem from './TopMenuItem';
 import { getServerSession } from 'next-auth';
-import { Link } from '@mui/material';
+import Link from 'next/link';
 import DropdownTabs from './DropdownTabs';
 import getUserProfile from "@/libs/getUserProfile";
 

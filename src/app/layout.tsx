@@ -13,6 +13,8 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
+
   const session = await getServerSession(authOptions)
 
   const menuItems = [
@@ -21,7 +23,7 @@ export default async function RootLayout({
     { title: 'Reservation', link: '/reservationslist' },
     { title: 'Register Form', link: '/register' },
   ];
-
+  
   return (
     <html lang="en">
       <body className={inter.className}>
