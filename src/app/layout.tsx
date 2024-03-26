@@ -19,6 +19,7 @@ export default async function RootLayout({
     { title: 'Home', link: '/' },
     { title: 'Our Restaurants', link: '/restaurants' },
     { title: 'Reservation', link: '/reservationslist' },
+    { title: 'Register Form', link: '/register' },
   ];
 
   return (
