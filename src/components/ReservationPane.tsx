@@ -10,24 +10,22 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route"
 import { getServerSession } from "next-auth";
 import { Session } from 'inspector'
 import Link from 'next/link'
+import { useSession } from 'next-auth/react'
 
-export default async function ReservationPane () {
+export default function ReservationPane () {
 
-    const session = await getServerSession(authOptions)
-    if(!session || !session.user.token) return null
-    const reservationResponse = await getReservations(session.user.token)
+    const {data: session, status} = useSession()
+    const [reservationResponse, setReservationResponse] = useState<ReservationJson|null>(null)
 
-    // const [reservationResponse, setReservationResponse] = useState<ReservationJson|null>(null)
-
-    // useEffect(()=> {
-    //     const fetchData = async () => {
-    //         const session = await getServerSession(authOptions)
-    //         if(!session || !session.user.token) return null
-    //         const reservation = await getReservations(session.user.token)
-    //         setReservationResponse(reservation)
-    //     }
-    //     fetchData()
-    // },[])
+    useEffect(()=> {
+        const fetchData = async () => {
+            if(session){
+                const reservation = await getReservations(session.user.token)
+                setReservationResponse(reservation)
+            }
+        }
+        fetchData()
+    },[])
 
     if(!reservationResponse) return (<p>Loading reservation ...</p>)
 

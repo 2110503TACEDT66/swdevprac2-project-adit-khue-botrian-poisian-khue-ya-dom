@@ -1,11 +1,27 @@
+'use client'
 import Image from 'next/image';
 import getReservation from '@/libs/getReservation';
 import Link from 'next/link';
 
-export default async function ReservationDetailPage({params}:{params:{hid:string}}){
+import { useSession } from 'next-auth/react';
+import { useEffect, useState } from 'react';
+import { ReservationItem } from '../../../../interface';
 
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZTQ5YzEzYjk5YjMyYWQ0MTgzNjM3ZiIsImlhdCI6MTcxMTM5MDk1NiwiZXhwIjoxNzEzOTgyOTU2fQ.Xro0bsnN2zb7tSbT21Lob9Vwus2b3KHgHIryuO07pmM"
-    const ReservationDetail = await getReservation(token,params.hid)
+export default function ReservationDetailPage({params}:{params:{hid:string}}){
+
+    const {data: session, status} = useSession()
+    const [reservationResponse, setReservationResponse] = useState<ReservationItem|null>(null)
+
+    useEffect(()=> {
+        const fetchData = async () => {
+            if(session){
+                const reservation = await getReservation(session.user.token,params.hid)
+                console.log(reservation)
+                setReservationResponse(reservation.data)
+            }
+        }
+        fetchData()
+    },[])
 
     return(
         <main className="text-center p-5">
@@ -16,24 +32,24 @@ export default async function ReservationDetailPage({params}:{params:{hid:string
             width={0} height={0} sizes="100vw"
             className='rounded-lg w-[30%] bg-black'/> */}
             <div className='text-md mx-5 text-left'>
-            <div className="text-xl font-bold">{ReservationDetail.data.restaurant.name}</div>
+            <div className="text-xl font-bold">{reservationResponse?.restaurant.name}</div>
                     <table className='table-auto border-separate border-spacing-2'>
                     <tbody>
                         <tr>
                             <td>User</td>
-                            <td>{ReservationDetail.data.user}</td>
+                            <td>{reservationResponse?.user}</td>
                         </tr>
                         <tr>
                             <td>Restaurant</td>
-                            <td>{ReservationDetail.data.restaurant.name}</td>
+                            <td>{reservationResponse?.restaurant.name}</td>
                         </tr>
                         <tr>
                             <td>Date&Time</td>
-                            <td>{ReservationDetail.data.reserDate.toString()}</td>
+                            <td>{reservationResponse?.reserDate.toString()}</td>
                         </tr>
                         <tr>
                             <td>Amount</td>
-                            <td>{ReservationDetail.data.amount}</td>
+                            <td>{reservationResponse?.amount}</td>
                         </tr>
                     </tbody>
                     </table>
