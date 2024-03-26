@@ -14,8 +14,8 @@ export default async function TopMenu () {
             <Image src = {'/img/restaurantlogo.png'} className="h-full w-auto"
             alt='logo' width={0} height={0} sizes="100vh"/>
             {
-                    session? <Link href="./api/auth/signout"><div className='flex items-center absolute right-0 h-full px-2
-                    absolute left-0 text-cyan-600 text-sm'>Sign-Out of {session.user?.name}</div></Link>
+                    session? <Link href="/api/auth/signout"><div className='flex items-center absolute right-0 h-full px-2
+                    absolute left-0 text-cyan-600 text-sm'>Sign-Out</div></Link>
                     :<Link href="/api/auth/signin"><div className='flex items-center absolute right-0 h-full px-2
                     absolute left-0 text-cyan-600 text-sm'>Sign-In</div></Link>
                 }
