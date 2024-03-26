@@ -6,11 +6,13 @@ import Link from 'next/link';
 import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import { ReservationItem } from '../../../../interface';
+import deleteReservation from '@/libs/deleteReservation';
 
 export default function ReservationDetailPage({params}:{params:{hid:string}}){
 
     const {data: session, status} = useSession()
     const [reservationResponse, setReservationResponse] = useState<ReservationItem|null>(null)
+    const [deleteSta,setDeleteSta] = useState(0)
 
     useEffect(()=> {
         const fetchData = async () => {
@@ -50,11 +52,27 @@ export default function ReservationDetailPage({params}:{params:{hid:string}}){
                         <tr>
                             <td>Amount</td>
                             <td>{reservationResponse?.amount}</td>
-                        </tr>
-                    </tbody>
+                        </tr></tbody>
                     </table>
+                        {
+                            (deleteSta == 0 )? <button className='block rounded-md bg-red-400 hover:bg-indigo-600 px-3 py-1 text-white shadow-sm'
+                            onClick={() => setDeleteSta(1)}>delete</button>:
+                            <div className='text-red-500'>Once you delete it, it cannot be brought back!</div>
+                        }
+                            
+                        {
+                        (deleteSta != 0 && session)? <tr>
+                        <td><button className='block rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-1 text-white shadow-sm m-md'
+                        onClick={() => setDeleteSta(0)}>cancle</button></td>
+                        <td><button className='block rounded-md bg-red-600 hover:bg-indigo-600 px-3 py-1 text-white shadow-sm'
+                        onClick={() => {deleteReservation(session.user.token,params.hid); alert('Reservation Delete'); window.location.href='/reservationslist';} }>delete</button></td>
+                        </tr>
+                        :<></>
+                        }
+                    
             </div>
             </div>
+            
         </main>
     )
 }
