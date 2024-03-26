@@ -1,0 +1,55 @@
+.sidebar {
+    position: absolute;
+    top: 0;
+    left: -190px; /* Initially hidden */
+    width: 250px;
+    height: 150%;
+    background-color: rgb(26, 26, 88);
+    transition: left 0.3s ease; /* Smooth transition for opening/closing */
+    z-index: 1000;
+  }
+  
+  /* Open state */
+  .sidebar.open {
+    left: 0;
+  }
+  
+  /* Toggle button */
+  .toggle-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+  
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin-bottom: 5px;
+  }
+  
+  /* Menu */
+  .menu {
+    list-style: none;
+    padding: 0;
+    margin: 60px 0 0 0; /* Adjust margin based on toggle button height */
+  }
+  
+  .menu li {
+    padding: 10px 20px;
+  }
+  
+  .menu li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+  }
+  
+  .menu li a:hover {
+    color: #ccc;
+  }
+  .sign-link {
+    color: white;
+    padding: 10px 20px;
+  }
