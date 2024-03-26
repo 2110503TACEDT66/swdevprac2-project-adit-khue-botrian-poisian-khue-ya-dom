@@ -5,16 +5,16 @@ import Sidebar from '@/components/Sidebar'
 
 
 export default  async function Home() {
-    const menuItems = [
-      { title: 'Home', link: '/' },
-      { title: 'Our Restaurants', link: '/restaurants' },
-      { title: 'Contact', link: '/contact' },
-    ];
+    // const menuItems = [
+    //   { title: 'Home', link: '/' },
+    //   { title: 'Our Restaurants', link: '/restaurants' },
+    //   { title: 'Contact', link: '/contact' },
+    // ];
   return (
     <main className={styles.body}>
       <Banner/>
       <UserInfo/>
-      <Sidebar items={menuItems} />
+      {/* <Sidebar items={menuItems}/> */}
     </main>
   )
 }
